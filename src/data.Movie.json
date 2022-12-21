@@ -1,0 +1,36 @@
+{
+    "Movies": [
+      {
+        "id": "d2fueo5oao2jeo24i52",
+        "titre": "THE LAST OF US",
+        "imageMovie": "https://fr.web.img4.acsta.net/c_310_420/pictures/22/11/24/09/48/4090400.jpg",
+        "synopsis": "Quand le monde tel que vous le connaissiez n'existe plus, quand la ligne entre le bien et le mal devient floue, quand la mort se manifeste au quotidien, jusqu'où iriez-vous pour survivre ? Pour Joel, la survie est une préoccupation quotidienne qu'il gère à sa manière. Mais quand son chemin croise celui d'Ellie, leur voyage à travers ce qui reste des États-Unis va mettre à rude épreuve leur humanité et leur volonté de survivre.",
+        "durer": 60,
+        "realisateur": ["Neil Druckman", "Craig Mazin"],
+        "type": ["Aventure", "Drame", "Epouvante-horreur", "Action"],
+        "acteurs": [
+          {
+            "nom": "Pedro Pascal",
+            "role": "Joel",
+            "img": "https://fr.web.img3.acsta.net/c_162_216/pictures/16/07/27/11/24/278731.jpg"
+          },
+          {
+            "nom": "Bella Ramsey",
+            "role": "Ellie",
+            "img": "https://fr.web.img2.acsta.net/c_162_216/pictures/20/01/07/11/35/3644711.jpg"
+          },
+          {
+            "nom": "Gabriel Luna",
+            "role": "Tommy",
+            "img": "https://fr.web.img4.acsta.net/c_162_216/pictures/19/07/23/09/41/3189090.jpg"
+          },
+          {
+            "nom": "Merle Dandridge",
+            "role": "Marlene",
+            "img": "https://fr.web.img5.acsta.net/c_162_216/pictures/20/08/06/20/26/0357239.jpg"
+          }
+        ],
+        "nationalité": "U.S.A"
+      }
+    ]
+  }
