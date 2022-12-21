@@ -3,7 +3,7 @@ import {addFilm, setNewFilm} from "../actions/filmActions";
 
 const filmForm = () => {
     const dispatch = useDispatch();
-    const { acteurs, errorMsgs, newFilm } = useSelector( state => state.filmReducer );
+    const { realisateurs, types, acteurs, errorMsgs, newFilm } = useSelector( state => state.filmReducer );
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const filmForm = () => {
                     </ul>
                 )}
             <p>
-                <label htmlFor="titre">Name</label>
+                <label htmlFor="titre">Titre</label>
                 <input titre="titre" type="text"
                        value={newFilm.titre}
                        onChange={ (e) => dispatch( setNewFilm( { newFilm: {
@@ -29,7 +29,27 @@ const filmForm = () => {
                 />
             </p>
             <p>
-                <label htmlFor="duree">Age</label>
+                <label htmlFor="imageurl">Image</label>
+                <input titre="imageurl" type="url"
+                       value={newFilm.imgurl}
+                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
+                               ...newFilm,
+                               titre: e.target.value,
+                       }}))}
+                />
+            </p>
+            <p>
+                <label htmlFor="syno">Synopsis</label>
+                <input titre="syno" type="textarea"
+                       value={newFilm.syno}
+                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
+                               ...newFilm,
+                               titre: e.target.value,
+                       }}))}
+                />
+            </p>
+            <p>
+                <label htmlFor="duree">Duree</label>
                 <input titre="duree" type="number"
                        value={newFilm.duree}
                        onChange={ (e) => dispatch( setNewFilm( { newFilm: {
@@ -39,16 +59,16 @@ const filmForm = () => {
                 />
             </p>
             <p>
-                <label htmlFor="type">Element</label>
-                <select titre="type"
-                        value={newFilm.type}
-                        onChange={ (e) => dispatch( setNewFilm( { newFilm: {
-                                ...newFilm,
-                                type: e.target.value,
-                        }}))}
-                >
-                    { types.map( (type, i) => <option key={i} value={type}>{type}</option> ) }
-                </select>
+                <label htmlFor="type">Type</label>
+                <fieldset>
+                    <div>
+                        { types.map( (type, i) => 
+                        <>
+                        <input type="checkbox" key={i} value={type}/>
+                        <label>{type}</label>
+                        </> ) }
+                    </div>
+                </fieldset>
             </p>
             <p>
                 <button type="submit">Ajouter film</button>
