@@ -20,8 +20,6 @@ const FilmForm = () => {
             
         });
         setNom('');
-        setAge('');
-        setElement('');
         dispatch( addDragon( { dragon } ) )
     }
 
