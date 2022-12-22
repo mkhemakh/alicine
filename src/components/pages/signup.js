@@ -11,7 +11,7 @@ return (
           <input name="username" type="text"/>
           <label htmlFor="password">Password: </label>
           <input name="password" type="password"/>
-          <button type="submit">Login</button>
+          <button type="submit">S'inscrire</button>
         </form>
       </div>
     </>
