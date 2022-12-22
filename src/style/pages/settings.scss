@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "font-1";
+  
+  }
+  @font-face {
+    font-family: "font-2";
+  }
+   
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-1;
+  }
+  
+  body {
+    background: $color-2;
+    color: $white;
+  }
+  li {
+    list-style: none;
+  }
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

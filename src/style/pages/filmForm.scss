@@ -1,0 +1,67 @@
+.filmForm {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  margin: auto;
+  font-size: large;
+}
+.filmForm h1 {
+  margin-bottom: 50px;
+}
+
+.filmForm > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  position: relative;
+  width: 100%;
+
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: white;
+  margin-bottom: 20px;
+  padding-left: 5px;
+}
+.filmForm div > label {
+  position: absolute;
+  top: -25%;
+  left: 2%;
+  padding: 0px 3px;
+  background-color: white;
+  color: black;
+}
+.filmForm input,
+.filmForm fieldset {
+  display: flex;
+  border: none;
+  flex: 1;
+  height: 99%;
+  font-size: large;
+  outline: none;
+  padding: 0px 3px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+.filmForm fieldset,
+.filmForm p {
+  display: flex;
+  flex-direction: row;
+}
+.filmForm button {
+  font-size: large;
+  margin-top: 30px;
+  background-color: rgb(201, 229, 239);
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+.filmForm button:hover {
+  background-color: rgb(84, 115, 127);
+  color: white;
+}
