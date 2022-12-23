@@ -1,19 +1,15 @@
-const signup = () => {
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import FormUser from '../FormUser';
+import Header from '../Header';
 
-return (
-    <>
-      <label>SIGNUP</label>
-      <div>
-        <form>
-          <label htmlFor="email">Email: </label>
-          <input name="email" type="mail"/>
-          <label htmlFor="username">Username: </label>
-          <input name="username" type="text"/>
-          <label htmlFor="password">Password: </label>
-          <input name="password" type="password"/>
-          <button type="submit">S'inscrire</button>
-        </form>
-      </div>
-    </>
-    )
-}
+const SignUp = () => {
+    return (
+      <>
+      <Header />
+      <FormUser  />
+      </>
+    );
+};
+
+export default SignUp;

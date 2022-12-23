@@ -1,78 +1,119 @@
-import {useDispatch, useSelector} from "react-redux";
-import {addFilm, setNewFilm} from "../actions/filmActions";
+import React, { useState } from 'react';
+import { useDispatch} from 'react-redux';
+import Header from '../Header';
+import {addFilm} from "../../actions/moviesDataAction";
 
-const filmForm = () => {
-    const dispatch = useDispatch();
-    const { realisateurs, types, acteurs, errorMsgs, newFilm } = useSelector( state => state.filmReducer );
+const FilmForm = () => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch( addFilm() );
+const dispatch = useDispatch()
+
+
+const [title, setTitle] = useState();
+const [time, setTime] = useState();
+const [synopsis, setSynopsis] = useState();
+const [url, setUrl] = useState();
+const [type, setType] = useState();
+const [nationnalite, setNationnalite] = useState();
+const user = JSON.parse(localStorage.getItem('currentUser'));
+
+const types = [
+    'Comedie',
+    'Action',
+    'Drama',
+    'Fantaisie'
+];
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newMovie = 
+    {
+        id: new Date().getTime(),
+        userId: user.id, 
+        titre: title,
+        durer: time,
+        imageMovie: url,
+        synopsis: synopsis,
+        type: [type],
+        realisateur : ['inconnu'],
+        nationalité: nationnalite
+
     }
 
+ 
+    dispatch(addFilm({newMovie}));
+    window.location = "/";
+     
+}
+    
     return (
-        <form onSubmit={ (e) => handleSubmit(e) }>
-            <h2>Nouveau Film</h2>
-                { errorMsgs.length > 0 && (
-                    <ul className="error-box">
-                        { errorMsgs.map( (error, i) => <li key={i}>{ error }</li> ) }
-                    </ul>
-                )}
-            <p>
+        
+       <>
+         
+          <Header />  
+
+          <form onSubmit={ (e) => handleSubmit(e) } className="filmForm">
+            <h1>Nouveau Film</h1>
+            <div> 
+          
                 <label htmlFor="titre">Titre</label>
                 <input titre="titre" type="text"
-                       value={newFilm.titre}
-                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
-                               ...newFilm,
-                               titre: e.target.value,
-                       }}))}
+                      
+                       onChange={ (e) => setTitle(e.target.value)}
                 />
-            </p>
-            <p>
+          
+          </div>  
+           <div> 
                 <label htmlFor="imageurl">Image</label>
-                <input titre="imageurl" type="url"
-                       value={newFilm.imgurl}
-                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
-                               ...newFilm,
-                               titre: e.target.value,
-                       }}))}
+                <input titre="imageurl"
+                       
+                       onChange={ (e) => setUrl(e.target.value)}
                 />
-            </p>
-            <p>
+          </div>
+            <div>
                 <label htmlFor="syno">Synopsis</label>
                 <input titre="syno" type="textarea"
-                       value={newFilm.syno}
-                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
-                               ...newFilm,
-                               titre: e.target.value,
-                       }}))}
+                       
+                       onChange={ (e) => setSynopsis(e.target.value)}
                 />
-            </p>
-            <p>
+           </div>
+            <div>
                 <label htmlFor="duree">Duree</label>
-                <input titre="duree" type="number"
-                       value={newFilm.duree}
-                       onChange={ (e) => dispatch( setNewFilm( { newFilm: {
-                               ...newFilm,
-                               duree: e.target.value,
-                       }}))}
+                <input titre="duree" type="text"
+                       
+                       onChange={ (e) => setTime(e.target.value) }
                 />
-            </p>
-            <p>
+            </div>
+
+            <div>
+            <label htmlFor="syno">nationnalité</label>
+                <input titre="syno" type="textarea"
+                       
+                       onChange={ (e) => setNationnalite(e.target.value)}
+                />
+            </div>
+        
                 <label htmlFor="type">Type</label>
                 <fieldset>
-                    <div>
-                        { types.map( (type, i) => 
+                   <p>
+                        { types.map( (type, index) => 
                         <>
-                        <input type="checkbox" key={i} value={type}/>
+                        <input type="checkbox" key={index} value={type} 
+                         onChange={ (e) => 
+                            setType(e.target.value)
+                            }
+                        />
                         <label>{type}</label>
                         </> ) }
-                    </div>
-                </fieldset>
-            </p>
-            <p>
+                   </p>
+                </fieldset>    
                 <button type="submit">Ajouter film</button>
-            </p>
+           
         </form>
-    )
-}
+         
+       
+       </>
+    );
+};
+
+export default FilmForm;
