@@ -5,5 +5,5 @@ import movieReducer from "./movieReducer";
 
 export default combineReducers({
       movieReducer,
-      userReducer
+      userReducer  
 })

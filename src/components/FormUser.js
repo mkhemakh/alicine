@@ -19,8 +19,8 @@ const FormUser = () => {
 
        }
        
-     window.localStorage.setItem("currentUser", JSON.stringify(addUser) )
-     const storage = window.localStorage
+       window.localStorage.setItem("currentUser", JSON.stringify(addUser) )
+       const storage = window.localStorage
        console.log(storage)
 
      window.location = "/"

@@ -4,10 +4,6 @@ import FormUser from '../FormUser';
 import Header from '../Header';
 
 const SignUp = () => {
-
-    const dispatch = useDispatch()
-    let film  = useSelector(state => state.movieReducer);
-    console.log(film);
     return (
       <>
       <Header />

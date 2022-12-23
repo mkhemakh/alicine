@@ -1,6 +1,6 @@
-
+import test from '../data.Movie.json'
 const stateInit = {
-    movies: [] 
+    movies: test.Movies
 }
 
 
@@ -8,21 +8,18 @@ const movieReducer = ( state = stateInit, action = {} ) => {
  
   
     switch( action.type )
-    {
-        case 'SET_MOVIEDATA':
-            return ({
-                ...state,
-                movies: state.movies.concat(action.payload)       
-               
-             })
-
+    {   
              case 'ADD_FILM':
-                console.log(action.payload.newMovie)
-                console.log(state.movies)
                 return ({
                     ...state,
-                    movies: [...state.movies, action.payload.newMovie]
+                    movies: state.movies.concat(action.payload.newMovie)
                  })
+
+                 case 'DELETE_FILM':
+                    return ({
+                        ...state,
+                        movies: state.movies.filter((film) => film.id !== action.payload)
+                     })
          
         default:
             return state;

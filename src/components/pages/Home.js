@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from '../Card';
-import filmData from '../../data.Movie.json';
 import Header from '../Header';
 import { useSelector } from 'react-redux';
 
 const Home = () => {
     const film = useSelector(state => state.movieReducer);
-  useEffect(() => {
-    
-    console.log(film.movies);
-  },[])
+     
+
     return (
       <>
         <div className='home-page'>

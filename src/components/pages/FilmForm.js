@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import Header from '../Header';
 import {addFilm} from "../../actions/moviesDataAction";
 
 const FilmForm = () => {
 
 const dispatch = useDispatch()
-const { realisateurs,  acteurs, errorMsgs, newFilm } = useSelector( state => state.movieReducer );
+
 
 const [title, setTitle] = useState();
 const [time, setTime] = useState();
 const [synopsis, setSynopsis] = useState();
 const [url, setUrl] = useState();
 const [type, setType] = useState();
-const [nationnalite, setNationnalite] = useState()
+const [nationnalite, setNationnalite] = useState();
 const user = JSON.parse(localStorage.getItem('currentUser'));
 
 const types = [
@@ -22,9 +22,6 @@ const types = [
     'Drama',
     'Fantaisie'
 ];
-
-
-
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,17 +34,16 @@ const handleSubmit = (e) => {
         durer: time,
         imageMovie: url,
         synopsis: synopsis,
-        type: type,
-        acteurs : [],
+        type: [type],
+        realisateur : ['inconnu'],
         nationalité: nationnalite
 
     }
 
  
     dispatch(addFilm({newMovie}));
-
-   
-   
+    window.location = "/";
+     
 }
     
     return (
@@ -83,9 +79,9 @@ const handleSubmit = (e) => {
            </div>
             <div>
                 <label htmlFor="duree">Duree</label>
-                <input titre="duree" type="number"
+                <input titre="duree" type="text"
                        
-                       onChange={ (e) => setTime(parseInt(e.target.value)) }
+                       onChange={ (e) => setTime(e.target.value) }
                 />
             </div>
 
@@ -110,12 +106,7 @@ const handleSubmit = (e) => {
                         <label>{type}</label>
                         </> ) }
                    </p>
-                </fieldset>
-              
-            
-         
-         
-            
+                </fieldset>    
                 <button type="submit">Ajouter film</button>
            
         </form>
